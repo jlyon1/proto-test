@@ -1,7 +1,16 @@
 remote: github.com/jlyon1/proto-test
 version: v1
-deps:
-    - remote: github.com/googleapis/googleapis
-      version: v1
-      commit: 7cde5d0df08801e00fc45df1546942aa2692d5c3
-      deps: []
+build:
+    plugins:
+        - name: go
+          out: gen/
+          opt: paths=source_relative
+        - name: go-grpc
+          out: gen/
+          opt: paths=source_relative
+    output: ""
+    deps:
+        - remote: github.com/googleapis/googleapis
+          commit: 7cde5d0df08801e00fc45df1546942aa2692d5c3
+        - remote: github.com/jlyon1/echo
+          commit: 73557dd

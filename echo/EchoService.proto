@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package echo;
+option go_package="github.com/jlyon1/proto-test/gen/echo";
+
+import "google/api/annotations.proto";
+import "echo/echo.proto";
+
+service EchoService {
+  rpc Echo(echo.EchoRequest) returns (echo.EchoResponse){
+    option (google.api.http) = { get: "/v1/api/echo" };
+  };
+}
